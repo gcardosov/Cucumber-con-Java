@@ -8,7 +8,8 @@ import cucumber.api.CucumberOptions;
 @RunWith(Cucumber.class)
 @CucumberOptions(
 		
-		features = {"/Modulos/Login/LoginPrueba.feature"},
+		features = {"Modulos/Login/LoginPrueba.feature"},
+		glue = "",
 		tags = {"@tag1"}
 		
 		)

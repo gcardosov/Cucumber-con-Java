@@ -1,4 +1,3 @@
-@tag
 Feature: Realizar un login sobre una pagina
   I want to use this template for my feature file
 
