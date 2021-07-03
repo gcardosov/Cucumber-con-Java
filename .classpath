@@ -8,6 +8,8 @@
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="src" path="Modulos"/>
 	<classpathentry kind="src" path="Metodos"/>
+	<classpathentry kind="src" path="Funcinones"/>
+	<classpathentry kind="src" path="Utilerias"/>
 	<classpathentry kind="lib" path="C:/Users/Gera/Downloads/Cucumber/cucumber-core-1.2.5.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Gera/Downloads/Cucumber/cucumber-html-0.2.2-sources.jar"/>
 	<classpathentry kind="lib" path="C:/Users/Gera/Downloads/Cucumber/cucumber-java-1.2.5.jar"/>
