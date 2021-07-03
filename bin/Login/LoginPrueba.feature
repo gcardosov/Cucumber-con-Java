@@ -10,6 +10,16 @@ Feature: Realizar un login sobre una pagina
     And validas otra accion
     Then Cuando termines de validar
     And realiza log out
+    
+  @tagDemoBlaze
+  Scenario: Registrar nuevo usuario
+    Given Abrir el navegador y la pagina
+    And una vez que se abra escribir el userName "GeraPruebas" 
+    And escribe el passwor "password"
+ 		When dar click en Sign Up  
+ 		And Se registra usuario
+ 		Then Cierra el navagador
+    
 
   @tag2
   Scenario Outline: Title of your scenario outline

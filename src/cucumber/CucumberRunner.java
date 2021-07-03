@@ -10,7 +10,7 @@ import cucumber.api.CucumberOptions;
 		
 		features = {"Modulos/Login/LoginPrueba.feature"},
 		glue = "",
-		tags = {"@tag1"}
+		tags = {"@tagDemoBlaze"}
 		
 		)
 
