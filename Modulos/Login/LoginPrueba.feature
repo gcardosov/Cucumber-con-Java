@@ -12,22 +12,15 @@ Feature: Realizar un login sobre una pagina
     And realiza log out
     
   @tagDemoBlaze
-  Scenario: Registrar nuevo usuario
+  Scenario: Login usuario
     Given Abrir el navegador y la pagina
-    And una vez que se abra escribir el userName "GeraPruebas" 
-    And escribe el passwor "password"
- 		When dar click en Sign Up  
- 		And Se registra usuario
+    When dar click en login 
+ 		And Se ingresa userName "GeraPruebas"
+ 		And Se ingresa password "password"
+ 		And dar click en btn login
+ 		#And aceptar en alerta 
  		Then Cierra el navagador
     
 
-  @tag2
-  Scenario Outline: Title of your scenario outline
-    Given I want to write a step with <name>
-    When I check for the <value> in step
-    Then I verify the <status> in step
 
-    Examples: 
-      | name  | value | status  |
-      | name1 |     5 | success |
-      | name2 |     7 | Fail    |
+      

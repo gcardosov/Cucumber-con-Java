@@ -1,5 +1,10 @@
 package PasosScripts;
 
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+
 import cucumber.api.PendingException;
 import cucumber.api.java.en.Given;
 import cucumber.api.java.en.Then;
@@ -7,10 +12,26 @@ import cucumber.api.java.en.When;
 
 public class Metodos1 {
 	
+	WebDriver driver;
+	Alert alertWindow;
+	
 	@Given("^Abrir el navegador y la pagina$")
 	public void abrir_el_navegador_y_la_pagina() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		System.out.println("Se abre el navegador y la pagina");
+		//Denifimos que navegador vamos a usar 
+		//pasamos los 2 parametros del metodo, driver y path
+		System.setProperty("webdriver.chrome.driver", "C:\\drivers\\chromedriver.exe");
+		//invocamos una instancia del driver
+		driver = new ChromeDriver(); 
+		//Instruccion para abrir una pagina con SELENIUM	
+		System.out.println("Se abre el navegador y la pagina" );
+		System.out.println("https://www.demoblaze.com/index.html");
+		driver.get("https://www.demoblaze.com/index.html");	
+		//Esperamos
+		Thread.sleep(3000);
+		//Se maximiza la ventana del navegador
+		System.out.println("Se maximiza la ventana del navegador");
+		driver.manage().window().maximize();
 		//throw new PendingException();
 	}
 
@@ -36,7 +57,7 @@ public class Metodos1 {
 	}
 
 	@When("^validas otra accion$")
-	public void validas_otra_acci_n() throws Throwable {
+	public void validas_otra_accion() throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
 		System.out.println("Se realiza otra accion");
 	    //throw new PendingException();
@@ -55,35 +76,67 @@ public class Metodos1 {
 		System.out.println("Se realiza log out ");
 	    //throw new PendingException();
 	}
+	
+	
+	//METODOS DE TAG DEMOBLAZE 
+	
 
-	@Given("^I want to write a step with name(\\d+)$")
-	public void i_want_to_write_a_step_with_name(int arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		//System.out.println("Se  ");
+	
+	@When("^dar click en login$")
+	public void dar_click_en_login() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions		
+		driver.findElement(By.id("login2")).click();
+		System.out.println("Click en login");
+		Thread.sleep(3000);
 	    //throw new PendingException();
 	}
 
-	@When("^I check for the (\\d+) in step$")
-	public void i_check_for_the_in_step(int arg1) throws Throwable {
-	    // Write code here that turns the phrase above into concrete actions
-		//System.out.println("Se ");
-	    //throw new PendingException();
-	}
 
-	@Then("^I verify the success in step$")
-	public void i_verify_the_success_in_step() throws Throwable {
+	@When("^Se ingresa userName \"([^\"]*)\"$")
+	public void se_ingresa_userName(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		//System.out.println("Se ");
-	    //throw new PendingException();
+		System.out.println("Pasamos UserNme");	
+		driver.findElement(By.id("loginusername")).sendKeys("NOSE1");		
+		//throw new PendingException();	    	    	
 	}
-
-	@Then("^I verify the Fail in step$")
-	public void i_verify_the_Fail_in_step() throws Throwable {
+	
+	@When("^Se ingresa password \"([^\"]*)\"$")
+	public void se_ingresa_password(String arg1) throws Throwable {
 	    // Write code here that turns the phrase above into concrete actions
-		//System.out.println("Se ");
-	    //throw new PendingException();
+		System.out.println("Pasamos password");
+		driver.findElement(By.id("loginpassword")).sendKeys("NOSE1");		
+		//throw new PendingException();
 	}
 	
 	
-
+	@When("^dar click en btn login$")
+	public void dar_click_en_btn_login() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		driver.findElement(By.xpath("/html/body/div[3]/div/div/div[3]/button[2]")).click();
+		System.out.println("Click al boton de login");
+		//throw new PendingException();
+	}
+	
+	
+	/*@When("^aceptar en alerta$")
+	public void aceptar_en_alerta() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+		Alert alert = driver.switchTo().alert();
+		alert.accept();
+		//throw new PendingException();
+	}*/
+	
+	
+	@Then("^Cierra el navagador$")
+	public void cierra_el_navagador() throws Throwable {
+	    // Write code here that turns the phrase above into concrete actions
+	    //throw new PendingException();
+		Thread.sleep(3000);
+		driver.close();
+		System.out.println("Cerramos el navegador");
+	
+	}
+	
+	
+	
 }
